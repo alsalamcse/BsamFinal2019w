@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 public class logActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText etEmail,etPassword;
-    private Button btnSignIn,btnTheBarber,btnSignUp;
+    private Button btnSignIn,btnTheBarber,btnSignUp,TEST;
 
 
     @Override
@@ -31,6 +31,7 @@ public class logActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
         btnTheBarber = (Button) findViewById(R.id.btnTheBarber);
+        TEST = (Button) findViewById(R.id.TEST);
         auth = FirebaseAuth.getInstance();
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,14 @@ public class logActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), BarberLogIn.class);
+                startActivity(intent);
+
+            }
+        });
+        TEST.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PickDateActivity.class);
                 startActivity(intent);
 
             }
