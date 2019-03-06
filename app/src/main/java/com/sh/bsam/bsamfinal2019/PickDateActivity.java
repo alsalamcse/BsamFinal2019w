@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class PickDateActivity extends AppCompatActivity  implements DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener {
-    private Button btnPick;
+    private Button btnPick,btnSend;
     private TextView tvResult;
 
     int day, month, year, hour, minute;
@@ -27,6 +27,7 @@ public class PickDateActivity extends AppCompatActivity  implements DatePickerDi
 
         btnPick = (Button) findViewById(R.id.btnPick);
         tvResult = (TextView) findViewById(R.id.tvResult);
+        btnSend = (Button) findViewById(R.id.btnSend);
 
         btnPick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,13 +42,19 @@ public class PickDateActivity extends AppCompatActivity  implements DatePickerDi
 
             }
         });
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
     @Override
     public void onDateSet(DatePicker datePicker,int i, int i1, int i2) {
         yearFinal=i;
-        monthFinal=i1+1;//
+        monthFinal=i1+1;// i1+1 becawse the android return 11 monthes
         dayFinal=i2;
 
         Calendar c = Calendar.getInstance();
