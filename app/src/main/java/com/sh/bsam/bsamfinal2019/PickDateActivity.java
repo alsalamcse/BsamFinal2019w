@@ -69,7 +69,7 @@ public class PickDateActivity extends AppCompatActivity  implements DatePickerDi
     @Override
     public void onTimeSet(TimePicker timePicker,int i,int i1) {
         hourFinal = i;
-        monthFinal = i1;
+        minuteFinal = i1;
 
         tvResult.setText("year:"+yearFinal+"\n"+
                 "month:"+monthFinal+"\n"+
