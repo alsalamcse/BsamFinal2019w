@@ -14,6 +14,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.sh.bsam.bsamfinal2019.Data.MyProfile;
 
 public class SignUp extends AppCompatActivity {
     private FirebaseAuth auth;
@@ -68,9 +71,11 @@ public class SignUp extends AppCompatActivity {
             isok = false;
         }
         if (isok){
+            MyProfile myProfile = new MyProfile();
             creatAcount(email,passw1);
         }
     }
+
     private void creatAcount (String email , String passw)
     {
         auth.createUserWithEmailAndPassword(email, passw).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
@@ -87,14 +92,11 @@ public class SignUp extends AppCompatActivity {
                 }
             }
         });
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignUp.this,logActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
+
+
 }
+
+
 

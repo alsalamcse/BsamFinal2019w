@@ -20,7 +20,8 @@
         <activity android:name=".SignUp" />
         <activity android:name=".BarberLogIn" />
         <activity android:name=".PickDateActivity" />
-        <activity android:name=".AllDatesList"></activity>
+        <activity android:name=".AllDatesList" />
+        <activity android:name=".TostActivity"></activity>
     </application>
 
 </manifest>

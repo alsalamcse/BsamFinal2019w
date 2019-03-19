@@ -2,11 +2,15 @@ package com.sh.bsam.bsamfinal2019;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -17,8 +21,12 @@ public class PickDateActivity extends AppCompatActivity  implements DatePickerDi
     private Button btnPick,btnSend;
     private TextView tvResult;
 
+
+
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,17 @@ public class PickDateActivity extends AppCompatActivity  implements DatePickerDi
         btnPick = (Button) findViewById(R.id.btnPick);
         tvResult = (TextView) findViewById(R.id.tvResult);
         btnSend = (Button) findViewById(R.id.btnSend);
+
+
+
+
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
 
         btnPick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,12 +58,6 @@ public class PickDateActivity extends AppCompatActivity  implements DatePickerDi
 
                 DatePickerDialog datePickerDialog = new DatePickerDialog(PickDateActivity.this, PickDateActivity.this,year,month,day);
                 datePickerDialog.show();
-
-            }
-        });
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
             }
         });

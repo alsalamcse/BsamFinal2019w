@@ -14,11 +14,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.sh.bsam.bsamfinal2019.BarberLogIn;
+import com.sh.bsam.bsamfinal2019.PickDateActivity;
+import com.sh.bsam.bsamfinal2019.R;
+import com.sh.bsam.bsamfinal2019.SignUp;
 
 public class logActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText etEmail,etPassword;
-    private Button btnSignIn,btnTheBarber,btnSignUp,TEST;
+    private Button btnSignIn,btnTheBarber,btnSignUp,INTENT;
 
 
     @Override
@@ -31,7 +35,7 @@ public class logActivity extends AppCompatActivity {
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
         btnTheBarber = (Button) findViewById(R.id.btnTheBarber);
-        TEST = (Button) findViewById(R.id.TEST);
+        INTENT = (Button) findViewById(R.id.INTENT);
         auth = FirebaseAuth.getInstance();
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +50,7 @@ public class logActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signIn(etEmail.getText().toString(),etPassword.getText().toString());
+                signIn(etEmail.getText().toString(), etPassword.getText().toString());
             }
         });
         btnTheBarber.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +61,7 @@ public class logActivity extends AppCompatActivity {
 
             }
         });
-        TEST.setOnClickListener(new View.OnClickListener() {
+        INTENT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PickDateActivity.class);
@@ -65,23 +69,26 @@ public class logActivity extends AppCompatActivity {
 
             }
         });
-
     }
-    private void signIn(String email, String passw) {
-        auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(logActivity.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(logActivity.this, "signIn Successful", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(getApplicationContext(), PickDateActivity.class);
-                    startActivity(i);
-                    finish();
-                } else {
-                    Toast.makeText(logActivity.this, "signIn Failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    task.getException().printStackTrace();
+        private void signIn (String email, String passw){
+            auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(logActivity.this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(logActivity.this, "signIn Successful", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(), PickDateActivity.class);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Toast.makeText(logActivity.this, "signIn Failed." + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        task.getException().printStackTrace();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
-}
+
+
+
+

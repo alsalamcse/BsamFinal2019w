@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AllDatesList">
+    tools:context=".TostActivity">
 
-    <ListView
+
+    <TextView
+        android:id="@+id/textT"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listL" />
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:hint="Item Value"/>
 </RelativeLayout>
