@@ -21,7 +21,8 @@
         <activity android:name=".BarberLogIn" />
         <activity android:name=".PickDateActivity" />
         <activity android:name=".AllDatesList" />
-        <activity android:name=".TostActivity"></activity>
+        <activity android:name=".TostActivity" />
+        <activity android:name=".informationActivity"></activity>
     </application>
 
 </manifest>
