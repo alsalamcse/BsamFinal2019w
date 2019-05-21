@@ -32,30 +32,29 @@ public class BarberLogIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dataHandler();
-                signIn(etEmail.getText().toString(),etPassword.getText().toString());
+               signIn(etEmail.getText().toString(),etPassword.getText().toString());
 
             }
         });
     }
     private void dataHandler() {
-        boolean isk = true;
-        String email = etEmail.getText().toString();
-        String passw1 = etPassword.getText().toString();
+        boolean isk=true;
+        String email=etEmail.getText().toString();
+        String passw1=etPassword.getText().toString();
         boolean isok = true;
-        if (email.indexOf("Thebarber@gmail.com") <0 )
-        {
+        if (email.equalsIgnoreCase("thebarber@gmail.com")) {
             etEmail.setError("wrong email");
             isok = false;
         }
-        if (passw1.indexOf("barberpassword") < 8) {
-            etPassword.setError("wrong password");
+        if (passw1.equalsIgnoreCase("barber123456")){
+            etPassword.setError("Have to be at least 8 char");
             isok = false;
-
-            if (isok) {
-                signIn(email, passw1);
-            }
+        }
+        if (isok) {
+            signIn(email, passw1);
         }
     }
+
     private void signIn(String email, String passw) {
         auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(BarberLogIn.this, new OnCompleteListener<AuthResult>() {
             @Override

@@ -1,6 +1,5 @@
 package com.sh.bsam.bsamfinal2019;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,15 +13,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.sh.bsam.bsamfinal2019.Data.MyProfile;
 
 public class SignUp extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseUser firebaseUser;
     private EditText etFirstName,etLastName,etEmail,etPassword,etPhoneNumber,etConfirmPassword;
     private Button btnSave;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,7 @@ public class SignUp extends AppCompatActivity {
         etPhoneNumber = (EditText) findViewById(R.id.etPhoneNumber);
         btnSave = (Button) findViewById(R.id.btnSave);
 
+
         auth = FirebaseAuth.getInstance();
         firebaseUser = auth.getCurrentUser();
 
@@ -44,9 +44,14 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dataHandler();
+
             }
         });
+
     }
+
+
+
     private void dataHandler() {
         boolean isk=true;
         String email=etEmail.getText().toString();
@@ -74,7 +79,10 @@ public class SignUp extends AppCompatActivity {
             MyProfile myProfile = new MyProfile();
             creatAcount(email,passw1);
         }
+
+
     }
+
 
     private void creatAcount (String email , String passw)
     {

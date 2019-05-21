@@ -64,12 +64,13 @@ public class logActivity extends AppCompatActivity {
         INTENT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AllDatesList.class);
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
                 startActivity(intent);
 
             }
         });
     }
+
         private void signIn (String email, String passw){
             auth.signInWithEmailAndPassword(email, passw).addOnCompleteListener(logActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -86,7 +87,9 @@ public class logActivity extends AppCompatActivity {
                 }
             });
         }
+
     }
+
 
 
 
