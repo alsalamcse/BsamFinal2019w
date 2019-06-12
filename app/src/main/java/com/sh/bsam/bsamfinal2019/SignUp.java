@@ -75,11 +75,6 @@ public class SignUp extends AppCompatActivity {
             etConfirmPassword.setError("passwords have to be matched");
             isok = false;
         }
-        if (isok){
-            MyProfile myProfile = new MyProfile();
-            creatAcount(email,passw1);
-        }
-
 
     }
 

@@ -18,11 +18,9 @@
         </activity>
         <activity android:name=".logActivity" />
         <activity android:name=".SignUp" />
-        <activity android:name=".BarberLogIn" />
-        <activity android:name=".PickDateActivity" />
-        <activity android:name=".AllDatesList" />
-        <activity android:name=".TodayActivity" />
-        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".todayActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".OrderActivity"></activity>
     </application>
 
 </manifest>
